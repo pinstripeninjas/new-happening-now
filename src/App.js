@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from "./pages/Navbar";
 import SignIn from "./pages/SignIn";
 import HappeningNow from "./pages/HappeningNow";
