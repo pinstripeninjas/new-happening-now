@@ -18,15 +18,15 @@ import {
 } from "@chakra-ui/core";
 import { connect } from "react-redux";
 
-import { importedOptions } from "../options/options";
+import { standardOptions } from "../options/options";
 import SubmitModal from "../components/SubmitModal";
 
 class HappeningNow extends React.Component {
 	state = {
-		options: importedOptions,
+		options: standardOptions,
 		windDirection: 0,
 		windSpeed: 0,
-		optionName: "",
+		optionTitle: "",
 		optionContent: "",
 	};
 
@@ -40,9 +40,9 @@ class HappeningNow extends React.Component {
 							w="50%"
 							my={1}
 							size="md"
-							value={option.type}
+							value={option.title}
 							onClick={this.handleClick}>
-							{option.type}
+							{option.title}
 						</Checkbox>
 					);
 				})}
@@ -54,7 +54,7 @@ class HappeningNow extends React.Component {
 		const value = event.target.value;
 		const newOptions = [...this.state.options];
 		for (let option of newOptions) {
-			if (option.type === value) {
+			if (option.title === value) {
 				!option.isChecked ? (option.isChecked = true) : (option.isChecked = false);
 				this.setState({ options: newOptions });
 			}
@@ -69,13 +69,13 @@ class HappeningNow extends React.Component {
 		event.preventDefault();
 		const newOptions = [...this.state.options];
 		newOptions.push({
-			type: this.state.optionName,
+			title: this.state.optionTitle,
 			wording: this.state.optionContent,
 			isChecked: false,
 		});
 		this.setState({
 			options: newOptions,
-			optionName: "",
+			optionTitle: "",
 			optionContent: "",
 		});
 	};
@@ -111,9 +111,9 @@ class HappeningNow extends React.Component {
 										<Stack spacing={3}>
 											<Input
 												type="text"
-												name="optionName"
+												name="optionTitle"
 												placeholder="Name"
-												value={this.state.optionName}
+												value={this.state.optionTitle}
 												size="sm"
 												w="none"
 												onChange={this.handleOptionChange}
