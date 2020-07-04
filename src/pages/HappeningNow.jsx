@@ -18,12 +18,12 @@ import {
 } from "@chakra-ui/core";
 import { connect } from "react-redux";
 
-import { standardOptions } from "../options/options";
+// import { standardOptions } from "../options/options";
 import SubmitModal from "../components/SubmitModal";
 
 class HappeningNow extends React.Component {
 	state = {
-		options: standardOptions,
+		options: this.props.options,
 		windDirection: 0,
 		windSpeed: 0,
 		optionTitle: "",
@@ -179,7 +179,7 @@ class HappeningNow extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-	test: state.test,
+	options: state.options,
 });
 
 export default connect(mapStateToProps)(HappeningNow);
