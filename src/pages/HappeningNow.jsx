@@ -16,6 +16,8 @@ import {
 	NumberInputField,
 	FormControl,
 } from "@chakra-ui/core";
+import { connect } from "react-redux";
+
 import { importedOptions } from "../options/options";
 import SubmitModal from "../components/SubmitModal";
 
@@ -176,4 +178,8 @@ class HappeningNow extends React.Component {
 	}
 }
 
-export default HappeningNow;
+const mapStateToProps = (state) => ({
+	test: state.test,
+});
+
+export default connect(mapStateToProps)(HappeningNow);
