@@ -6,44 +6,21 @@ import {
 	Heading,
 	Divider,
 	Text,
-	Button,
 	Stack,
-	Input,
 	InputGroup,
 	InputRightAddon,
 	NumberInput,
 	NumberInputField,
-	FormControl,
 } from "@chakra-ui/core";
 
 import Options from "./Options";
+import OptionsForm from "./OptionsForm";
 
 class TextOptions extends React.Component {
 	state = {
 		options: this.props.options,
 		windDirection: 0,
 		windSpeed: 0,
-		optionTitle: "",
-		optionContent: "",
-	};
-
-	handleOptionChange = (event) => {
-		this.setState({ [event.target.name]: event.target.value });
-	};
-
-	handleAddOption = (event) => {
-		event.preventDefault();
-		const newOptions = [...this.state.options];
-		newOptions.push({
-			title: this.state.optionTitle,
-			wording: this.state.optionContent,
-			isChecked: false,
-		});
-		this.setState({
-			options: newOptions,
-			optionTitle: "",
-			optionContent: "",
-		});
 	};
 
 	handleStormMotion = (value, type) => {
@@ -61,36 +38,7 @@ class TextOptions extends React.Component {
 						<Divider mx={0} />
 						<Options />
 					</Box>
-					<Box h="40%">
-						<Text fontWeight="semibold">Add Custom Option:</Text>
-						<form onSubmit={(values) => this.handleAddOption(values)}>
-							<FormControl>
-								<Stack spacing={3}>
-									<Input
-										type="text"
-										name="optionTitle"
-										placeholder="Name"
-										value={this.state.optionTitle}
-										size="sm"
-										w="none"
-										onChange={this.handleOptionChange}
-									/>
-									<Input
-										type="text"
-										name="optionContent"
-										placeholder="Content"
-										value={this.state.optionContent}
-										size="sm"
-										w="none"
-										onChange={this.handleOptionChange}
-									/>
-									<Button type="submit" variant="outline" variantColor="blue" size="sm">
-										Add Item
-									</Button>
-								</Stack>
-							</FormControl>
-						</form>
-					</Box>
+					<OptionsForm />
 					<Box h="10%">
 						<Stack isInline align="center">
 							<Text fontWeight="semibold">Storm Motion:</Text>
