@@ -1,46 +1,28 @@
 import React from "react";
 import { Flex, Checkbox } from "@chakra-ui/core";
 import { connect } from "react-redux";
+import { optionClicked } from "../actions/";
 
-class Options extends React.Component {
-	// state = {
-	// 	options: this.props.options,
-	// };
+const Options = (props) => {
+	const handleClick = (event) => {
+		props.optionClicked(event.target.value);
+	};
 
-	// handleClick = (event) => {
-	// 	const value = event.target.value;
-	// 	const newOptions = [...this.state.options];
-	// 	for (let option of newOptions) {
-	// 		if (option.title === value) {
-	// 			!option.isChecked ? (option.isChecked = true) : (option.isChecked = false);
-	// 			this.setState({ options: newOptions });
-	// 		}
-	// 	}
-	// };
-
-	render() {
-		return (
-			<Flex w="100%" wrap="wrap">
-				{this.props.options.map((option, i) => {
-					return (
-						<Checkbox
-							key={i}
-							w="50%"
-							my={1}
-							size="md"
-							value={option.title}
-							onClick={this.handleClick}>
-							{option.title}
-						</Checkbox>
-					);
-				})}
-			</Flex>
-		);
-	}
-}
+	return (
+		<Flex w="100%" wrap="wrap">
+			{props.options.map((option, i) => {
+				return (
+					<Checkbox key={i} w="50%" my={1} size="md" value={option.title} onClick={handleClick}>
+						{option.title}
+					</Checkbox>
+				);
+			})}
+		</Flex>
+	);
+};
 
 const mapStateToProps = (state) => ({
 	options: state.options,
 });
 
-export default connect(mapStateToProps)(Options);
+export default connect(mapStateToProps, { optionClicked })(Options);

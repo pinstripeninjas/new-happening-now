@@ -3,7 +3,6 @@ export const createOption = (title, wording) => {
 	for (let i = 0; i < 4; i++) {
 		wordingArray.push(wording);
 	}
-
 	return {
 		type: "CREATE_OPTION",
 		payload: {
@@ -11,5 +10,12 @@ export const createOption = (title, wording) => {
 			wording: wordingArray,
 			isChecked: false,
 		},
+	};
+};
+
+export const optionClicked = (title) => {
+	return {
+		type: "OPTION_CLICKED",
+		payload: title,
 	};
 };
