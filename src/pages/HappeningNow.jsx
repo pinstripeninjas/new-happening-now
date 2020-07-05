@@ -1,24 +1,9 @@
 import React from "react";
 import Graphic from "../components/Graphic";
-import {
-	Flex,
-	Box,
-	Heading,
-	Divider,
-	Text,
-	Button,
-	Checkbox,
-	Stack,
-	Input,
-	InputGroup,
-	InputRightAddon,
-	NumberInput,
-	NumberInputField,
-	FormControl,
-} from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 import { connect } from "react-redux";
 
-// import { standardOptions } from "../options/options";
+import TextOptions from "../components/TextOptions";
 import SubmitModal from "../components/SubmitModal";
 
 class HappeningNow extends React.Component {
@@ -28,26 +13,6 @@ class HappeningNow extends React.Component {
 		windSpeed: 0,
 		optionTitle: "",
 		optionContent: "",
-	};
-
-	createOptions = () => {
-		return (
-			<Flex w="100%" wrap="wrap">
-				{this.state.options.map((option, i) => {
-					return (
-						<Checkbox
-							key={i}
-							w="50%"
-							my={1}
-							size="md"
-							value={option.title}
-							onClick={this.handleClick}>
-							{option.title}
-						</Checkbox>
-					);
-				})}
-			</Flex>
-		);
 	};
 
 	handleClick = (event) => {
@@ -88,83 +53,7 @@ class HappeningNow extends React.Component {
 		return (
 			<>
 				<Flex justifyContent="space-evenly" wrap="wrap-reverse" my={16}>
-					<Box
-						mt={8}
-						border="1px"
-						rounded="md"
-						borderColor="gray.200"
-						boxShadow="md"
-						w={400}
-						h={550}>
-						<Flex direction="column" p={5} h="100%" justify="space-between">
-							<Box h="50%">
-								<Heading mb={0} textAlign="center">
-									Text Options
-								</Heading>
-								<Divider mx={0} />
-								{this.createOptions()}
-							</Box>
-							<Box h="40%">
-								<Text fontWeight="semibold">Add Custom Option:</Text>
-								<form onSubmit={(values) => this.handleAddOption(values)}>
-									<FormControl>
-										<Stack spacing={3}>
-											<Input
-												type="text"
-												name="optionTitle"
-												placeholder="Name"
-												value={this.state.optionTitle}
-												size="sm"
-												w="none"
-												onChange={this.handleOptionChange}
-											/>
-											<Input
-												type="text"
-												name="optionContent"
-												placeholder="Content"
-												value={this.state.optionContent}
-												size="sm"
-												w="none"
-												onChange={this.handleOptionChange}
-											/>
-											<Button type="submit" variant="outline" variantColor="blue" size="sm">
-												Add Item
-											</Button>
-										</Stack>
-									</FormControl>
-								</form>
-							</Box>
-							<Box h="10%">
-								<Stack isInline align="center">
-									<Text fontWeight="semibold">Storm Motion:</Text>
-									<InputGroup size="sm">
-										<NumberInput
-											clampValueOnBlur
-											value={this.state.windDirection}
-											min={0}
-											max={360}
-											w={60}
-											onChange={(value) => this.handleStormMotion(value, "windDirection")}>
-											<NumberInputField />
-										</NumberInput>
-										<InputRightAddon children="deg" />
-									</InputGroup>
-									<InputGroup size="sm">
-										<NumberInput
-											clampValueOnBlur
-											value={this.state.windSpeed}
-											min={0}
-											max={75}
-											w={50}
-											onChange={(value) => this.handleStormMotion(value, "windSpeed")}>
-											<NumberInputField />
-										</NumberInput>
-										<InputRightAddon children="mph" />
-									</InputGroup>
-								</Stack>
-							</Box>
-						</Flex>
-					</Box>
+					<TextOptions />
 					<Graphic
 						options={this.state.options}
 						direction={this.state.windDirection}
