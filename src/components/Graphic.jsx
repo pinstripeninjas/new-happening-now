@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Flex, Divider, Text, Stack, Icon } from "@chakra-ui/core";
 import StormMotion from "./StormMotion";
 
-const Graphic = ({ options, direction, speed }) => {
+const Graphic = ({ options }) => {
 	const fillActions = () => {
 		return options.map((action, i) => {
 			return action.isChecked ? (
@@ -21,7 +21,7 @@ const Graphic = ({ options, direction, speed }) => {
 					<Heading textAlign="center">Happening Now</Heading>
 					<Divider />
 					<Stack>{fillActions()}</Stack>
-					<StormMotion direction={direction} speed={speed} />
+					<StormMotion />
 				</Box>
 				<Box
 					as="iframe"

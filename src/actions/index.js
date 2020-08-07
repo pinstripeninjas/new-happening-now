@@ -19,3 +19,13 @@ export const optionClicked = (title) => {
 		payload: title,
 	};
 };
+
+export const updateStormMotion = (value, element) => {
+	return {
+		type: "UPDATE_STORM_MOTION",
+		payload: {
+			value: value,
+			element: element,
+		},
+	};
+};
