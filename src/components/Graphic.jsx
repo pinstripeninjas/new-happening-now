@@ -32,10 +32,11 @@ class Graphic extends React.Component {
 						<StormMotion />
 					</Box>
 					<Box h="100%" w="100%">
-						<Map center={this.state.center} zoom={this.state.zoom}>
+						<Map center={this.state.center} zoom={this.state.zoom} zoomControl={false}>
 							<TileLayer
 								attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-								url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+								// url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+								url="https://api.mapbox.com/styles/v1/robhowlett/ckcun9dwf3ele1iohl7rjelfv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoicm9iaG93bGV0dCIsImEiOiJja2RtMnB0bHIwOTNhMnpwOG96bTNuc3d5In0.gmFvk06PbmiibW_w7kNeuA"
 							/>
 							<WMSTileLayer
 								url="https://nowcoast.noaa.gov/arcgis/services/nowcoast/radar_meteo_imagery_nexrad_time/MapServer/WMSServer?"
