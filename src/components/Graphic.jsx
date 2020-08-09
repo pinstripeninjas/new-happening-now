@@ -12,10 +12,17 @@ class Graphic extends React.Component {
 
 	fillActions = () => {
 		return this.props.options.map((action, i) => {
+			const icon = action.icon;
+			console.log(action.icon);
 			return action.isChecked ? (
 				<Stack key={i} isInline spacing={2} align="center">
-					<Icon name="warning" size="20px" color="red.500" />
-					<Text fontSize="xl">{action.wording}</Text>
+					{/* <Box as={WiHail} size="50px" color="gray.200" /> */}
+					<Box textAlign="center" w="80px">
+						<i class={action.icon}></i>
+					</Box>
+					<Text color="gray.200" fontSize="xl">
+						{action.wording}
+					</Text>
 				</Stack>
 			) : null;
 		});

@@ -6,6 +6,7 @@ import Navbar from "./pages/Navbar";
 import SignIn from "./pages/SignIn";
 import HappeningNow from "./pages/HappeningNow";
 import "./App.css";
+import "./css/weather-icons.min.css";
 
 class App extends React.Component {
 	render() {
