@@ -1,8 +1,9 @@
 export const standardOptions = [
 	{
 		title: "Blowing Dust",
-		wording: ["Dust 1", "Dust 2", "Dust 3", "Dust 4"],
+		wording: "Blowing Dust",
 		isChecked: false,
+		icon: "WiDust",
 	},
 	{
 		title: "Burn Scar",
@@ -11,22 +12,26 @@ export const standardOptions = [
 	},
 	{
 		title: "Hail",
-		wording: ["Hail 1", "Hail 2", "Hail 3", "Hail 4"],
+		wording: "Small Hail",
 		isChecked: false,
+		icon: "WiHail",
 	},
 	{
 		title: "Heavy Rain",
-		wording: ["Heavy Rain 1", "Heavy Rain 2", "Heavy Rain 3", "Heavy Rain 4"],
+		wording: "Heavy Rain",
 		isChecked: false,
+		icon: "WiRaindrops",
 	},
 	{
 		title: "Lightning",
-		wording: ["Lightning 1", "Lightning 2", "Lightning 3", "Lightning 4"],
+		wording: "Frequent Lightning",
 		isChecked: false,
+		icon: "WiLightning",
 	},
 	{
 		title: "Wind Gusts",
-		wording: ["Wind Gusts 1", "Wind Gusts 2", "Wind Gusts 3", "Wind Gusts 4"],
+		wording: "Gusty Winds",
 		isChecked: false,
+		icon: "WiStrongWind",
 	},
 ];

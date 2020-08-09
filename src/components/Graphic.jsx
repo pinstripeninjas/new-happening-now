@@ -25,8 +25,10 @@ class Graphic extends React.Component {
 		return (
 			<Box border="1px" rounded="md" borderColor="gray.200" boxShadow="md" w={1100} h={550}>
 				<Flex h="100%">
-					<Box w={450} h="100%" position="relative" p={5}>
-						<Heading textAlign="center">Happening Now</Heading>
+					<Box w={450} h="100%" position="relative" p={5} bg="#0099D8">
+						<Heading textAlign="center" color="gray.200">
+							Happening Now
+						</Heading>
 						<Divider />
 						<Stack>{this.fillActions()}</Stack>
 						<StormMotion />
@@ -43,7 +45,7 @@ class Graphic extends React.Component {
 								layers="1"
 								format="image/png"
 								transparent="true"
-								opacity=".5"
+								opacity=".6"
 							/>
 						</Map>
 					</Box>

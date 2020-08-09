@@ -6,22 +6,24 @@ import { connect } from "react-redux";
 const StormMotion = ({ windSpeed, windDirection }) => {
 	return (
 		<Box position="absolute" bottom="0" left="0" p={5} w="100%">
-			<Heading fontSize="2xl">Storm Motion:</Heading>
+			<Heading color="gray.200" fontSize="2xl">
+				Storm Motion:
+			</Heading>
 			<Divider />
 			<Stack isInline align="center">
 				{windSpeed === 0 ? (
-					<Text color="blue.500" fontSize="3xl" fontWeight="bold">
+					<Text color="gray.200" fontSize="3xl" fontWeight="bold">
 						Nearly Stationary
 					</Text>
 				) : (
 					<>
-						<Text color="blue.500" fontSize="4xl" fontWeight="bold">
+						<Text color="gray.200" fontSize="4xl" fontWeight="bold">
 							{`${windSpeed} mph`}
 						</Text>
 						<Box
 							as={WiWindDeg}
 							size="70px"
-							color="blue.500"
+							color="gray.200"
 							transform={`rotate(${windDirection}deg)`}
 						/>
 					</>
