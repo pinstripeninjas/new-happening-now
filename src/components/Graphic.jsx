@@ -12,8 +12,6 @@ class Graphic extends React.Component {
 
 	fillActions = () => {
 		return this.props.options.map((action, i) => {
-			const icon = action.icon;
-			console.log(action.icon);
 			return action.isChecked ? (
 				<Stack key={i} isInline spacing={2} align="center">
 					{/* <Box as={WiHail} size="50px" color="gray.200" /> */}
@@ -30,7 +28,14 @@ class Graphic extends React.Component {
 
 	render() {
 		return (
-			<Box border="1px" rounded="md" borderColor="gray.200" boxShadow="md" w={1100} h={550}>
+			<Box
+				id="capture"
+				// border="1px"
+				// rounded="md"
+				// borderColor="gray.200"
+				boxShadow="md"
+				w={1100}
+				h={550}>
 				<Flex h="100%">
 					<Box w={450} h="100%" position="relative" p={5} bg="#0099D8">
 						<Heading textAlign="center" color="gray.200">
@@ -44,7 +49,7 @@ class Graphic extends React.Component {
 						<Map center={this.state.center} zoom={this.state.zoom} zoomControl={false}>
 							<TileLayer
 								attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-								// url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+								crossOrigin=""
 								url="https://api.mapbox.com/styles/v1/robhowlett/ckcun9dwf3ele1iohl7rjelfv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoicm9iaG93bGV0dCIsImEiOiJja2RtMnB0bHIwOTNhMnpwOG96bTNuc3d5In0.gmFvk06PbmiibW_w7kNeuA"
 							/>
 							<WMSTileLayer
@@ -52,7 +57,8 @@ class Graphic extends React.Component {
 								layers="1"
 								format="image/png"
 								transparent="true"
-								opacity=".6"
+								opacity=".7"
+								crossOrigin=""
 							/>
 						</Map>
 					</Box>
