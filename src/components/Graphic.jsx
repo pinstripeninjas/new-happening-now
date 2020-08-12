@@ -10,20 +10,34 @@ class Graphic extends React.Component {
 		zoom: 8,
 	};
 
+	getIndex = (title) => {
+		for (let i = 0; i < this.props.options.length; i++) {
+			if (this.props.options[i].title === title) {
+				return i;
+			}
+		}
+	};
+
 	fillActions = () => {
-		return this.props.options.map((action, i) => {
-			return action.isChecked ? (
-				<Stack key={i} isInline spacing={2} align="center">
-					{/* <Box as={WiHail} size="50px" color="gray.200" /> */}
-					<Box textAlign="center" w="80px">
-						<i class={action.icon}></i>
-					</Box>
-					<Text color="gray.200" fontSize="xl">
-						{action.wording}
-					</Text>
-				</Stack>
-			) : null;
-		});
+		return this.props.optionClicked.length !== 0
+			? this.props.optionClicked.map((action, i) => {
+					const index = this.getIndex(action);
+					return (
+						<Stack key={i} isInline spacing={2} align="center">
+							<Box textAlign="center" w="80px">
+								{this.props.options[index].icon === "warning" ? (
+									<Icon name="warning" m="10px" size="30px" color="gray.200" />
+								) : (
+									<i className={this.props.options[index].icon}></i>
+								)}
+							</Box>
+							<Text color="gray.200" fontSize="xl">
+								{this.props.options[index].wording}
+							</Text>
+						</Stack>
+					);
+			  })
+			: null;
 	};
 
 	render() {
@@ -57,7 +71,7 @@ class Graphic extends React.Component {
 								layers="1"
 								format="image/png"
 								transparent="true"
-								opacity=".7"
+								opacity=".6"
 								crossOrigin=""
 							/>
 						</Map>
@@ -70,6 +84,7 @@ class Graphic extends React.Component {
 
 const mapStateToProps = (state) => ({
 	options: state.options,
+	optionClicked: state.optionClicked,
 });
 
 export default connect(mapStateToProps)(Graphic);

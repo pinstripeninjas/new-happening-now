@@ -18,10 +18,12 @@ const HappeningNow = () => {
 				<TextOptions />
 				<Graphic />
 			</Flex>
-			<Button d="block" mx="auto" my={8} variantColor="blue" size="lg" onClick={imageCapture}>
-				Download Image
-			</Button>
-			<SubmitModal />
+			<Flex justifyContent="center">
+				<Button d="block" mx={4} my={8} variantColor="blue" size="lg" onClick={imageCapture}>
+					Download Image
+				</Button>
+				<SubmitModal />
+			</Flex>
 		</>
 	);
 };

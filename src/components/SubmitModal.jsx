@@ -22,7 +22,14 @@ const SubmitModal = () => {
 
 	return (
 		<>
-			<Button d="block" mx="auto" my={8} variantColor="blue" size="lg" onClick={onOpen}>
+			<Button
+				d="block"
+				mx={4}
+				my={8}
+				variant="outline"
+				variantColor="blue"
+				size="lg"
+				onClick={onOpen}>
 				Proceed to Send Graphic
 			</Button>
 
