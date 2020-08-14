@@ -7,7 +7,7 @@ import OptionsStormMotion from "./OptionsStormMotion";
 
 const TextOptions = () => {
 	return (
-		<Box mt={8} border="1px" rounded="md" borderColor="gray.200" boxShadow="md" w={400} h={550}>
+		<Box mt={8} border="1px" rounded="md" borderColor="gray.200" boxShadow="md" w={350} h={500}>
 			<Flex direction="column" p={5} h="100%" justify="space-between">
 				<Box h="50%">
 					<Heading mb={0} textAlign="center">

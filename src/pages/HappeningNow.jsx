@@ -14,7 +14,7 @@ const HappeningNow = () => {
 
 	return (
 		<>
-			<Flex justifyContent="space-evenly" wrap="wrap-reverse" my={16}>
+			<Flex justifyContent="space-evenly" wrap="wrap-reverse" mt={12}>
 				<TextOptions />
 				<Graphic />
 			</Flex>
