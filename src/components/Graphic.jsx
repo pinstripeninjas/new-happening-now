@@ -44,7 +44,7 @@ class Graphic extends React.Component {
 		return (
 			<Box id="capture" boxShadow="md" w={1000} h={500}>
 				<Flex h="100%">
-					<Box w={425} h="100%" position="relative" p={5} bg="#0099D8">
+					<Box w={450} h="100%" position="relative" p={5} bg="#0099D8">
 						<Heading textAlign="center" color="gray.200">
 							Happening Now
 						</Heading>
