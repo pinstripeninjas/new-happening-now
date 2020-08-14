@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { HashRouter, BrowserRouter, Route, Redirect } from "react-router-dom";
 import { auth, firestore } from "./firebase/firebase";
 
 import Navbar from "./pages/Navbar";
@@ -42,7 +42,7 @@ class App extends React.Component {
 		return (
 			<ThemeProvider>
 				<CSSReset />
-				<BrowserRouter>
+				<HashRouter basename="/">
 					<Navbar />
 					<Route exact path="/">
 						{this.props.currentUser ? (
@@ -56,7 +56,7 @@ class App extends React.Component {
 						path="/happening-now"
 						render={() => (!this.props.currentUser ? <Redirect to="/" /> : <HappeningNow />)}
 					/>
-				</BrowserRouter>
+				</HashRouter>
 			</ThemeProvider>
 		);
 	}
