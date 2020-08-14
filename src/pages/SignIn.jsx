@@ -1,7 +1,9 @@
 import React from "react";
-import { Box, Button, Heading, Divider } from "@chakra-ui/core";
+import { Box, Button, Heading, Divider, Text } from "@chakra-ui/core";
 
-const SignIn = () => {
+import { signInWithGoogle } from "../firebase/firebase";
+
+const SignIn = (props) => {
 	return (
 		<Box
 			pos="absolute"
@@ -18,9 +20,14 @@ const SignIn = () => {
 				Let's get started...
 			</Heading>
 			<Divider my={4} />
-			<Button w="100%" variantColor="blue">
+			<Button w="100%" variantColor="blue" onClick={signInWithGoogle}>
 				Sign With Google
 			</Button>
+			{props.invalidEmail ? (
+				<Text textAlign="center" color="red.500" my={3}>
+					This Account Is Not Authorized
+				</Text>
+			) : null}
 		</Box>
 	);
 };
